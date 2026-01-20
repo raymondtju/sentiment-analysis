@@ -1,0 +1,1 @@
+BiGRU Keras Model -> https://workupload.com/file/XPQFpMaJ28U
