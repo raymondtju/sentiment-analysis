@@ -1,0 +1,14 @@
+services:
+  streamlit-app:
+    image: sentiment-uas:latest
+    expose: 
+      - 8501
+    volumes:
+      - "/home/ubuntu/projects/sentiment-analysis:/app"
+    mem_limit: 2g
+    cpus: 0.5
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.streamlit-sentiment.rule=Host(`sentiment.recrav.com`)
+      - traefik.http.routers.streamlit-sentiment.entrypoints=web
+      - traefik.http.services.streamlit-sentiment.loadbalancer.server.port=8501
